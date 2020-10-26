@@ -36,7 +36,7 @@ public class Login : MonoBehaviour
             DBManager.username = nameField.text;
             //to ensure that it pass the 2nd information which is score 
             DBManager.score = int.Parse(www.text.Split('\t')[1]);
-            UnityEngine.SceneManagement.SceneManager.LoadScene(4);
+            UnityEngine.SceneManagement.SceneManager.LoadScene("04 game menu");
             
         }
         else
