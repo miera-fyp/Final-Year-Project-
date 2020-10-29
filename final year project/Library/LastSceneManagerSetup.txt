@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/04 game menu.unity
+- path: Assets/Scenes/06 award exhibition.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
