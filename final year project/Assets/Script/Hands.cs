@@ -13,13 +13,54 @@ public class Hands : MonoBehaviour
     private Interactable m_CurrentInteractable = null;
     public List<Interactable> m_ContactInteractable = new List<Interactable>();
 
+    //teleporting enable unable 
+    public GameObject controller;
+    public GameObject controllerPointer;
+
+    //pointer 
+    public GameObject pointerLaser;
+
+
     private void Awake()
     {
         //setting to get input from the controller 
         m_Pose = GetComponent<SteamVR_Behaviour_Pose>();
         m_Joint = GetComponent<FixedJoint>();
+
+        //laser pointer 
+        pointerLaser.SetActive(false);
+
+        //when start, player cannot teleport yet 
+        controller.GetComponent<Teleporter>().enabled = false;
     }
 
+    //calling teleport class, set teleport pointer to true 
+    //if can teleport 
+    public void Teleport()
+    {
+        controller.GetComponent<Teleporter>().enabled = true;
+        controllerPointer.SetActive(true);        
+    }
+
+    //if cannot teleport, hide controller pointer 
+    public void CantTeleport()
+    {
+        controller.GetComponent<Teleporter>().enabled = false;
+        controllerPointer.SetActive(false);
+    }
+
+    public void LaserOut()
+    {
+        pointerLaser.SetActive(false);
+    }
+
+    public void LeaveRoom()
+    {
+        pointerLaser.SetActive(true);
+    }
+
+
+    //codes for grabbing object
     private void Update()
     {
         //Down 
